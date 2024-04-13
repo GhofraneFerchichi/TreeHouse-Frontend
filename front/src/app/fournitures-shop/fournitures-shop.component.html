@@ -1,0 +1,191 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<link href="../../assets/fournitures/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="../../assets/fournitures/css/tiny-slider.css" rel="stylesheet">
+<link href="../../assets/fournitures/css/style.css" rel="stylesheet">
+
+<header>
+  <app-navbar-fourniture></app-navbar-fourniture><!-- End Header/Navigation -->
+</header>
+<!-- Start Hero Section -->
+
+<!-- ========================= SECTION INTRO END// ========================= -->
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+  <div class="container">
+
+      <div class="ag-format-container" >
+
+  <div class="ag-courses_box">
+
+    <div class="ag-courses_item">
+
+      <a href="#" class="ag-courses-item_link">
+
+        <div class="ag-courses-item_bg"></div>
+
+        <div class="ag-courses-item_title">
+          Clothes
+        </div>
+      </a>
+    </div>
+
+    <div class="ag-courses_item">
+      <a href="#" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+        <div class="ag-courses-item_title">
+         Kitchen
+        </div>
+      </a>
+    </div>
+
+    <div class="ag-courses_item">
+      <a href="#" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+        <div class="ag-courses-item_title">
+Decoration        </div>
+      </a>
+    </div>
+
+    <div class="ag-courses_item">
+      <a href="#" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+        <div class="ag-courses-item_title">
+Founiture        </div>
+      </a>
+    </div>
+    <button class="btn btn-success">
+      <a href="addproduct" style="color:white">  Add your product</a>          </button>
+  </div>
+
+</div><!-- End Hero Section -->
+
+<!-- brand section -->
+
+<section class="brand_section">
+    <div class="brand_container layout_padding2" *ngFor="let product of products" style="display: inline-block; padding: 8px;">
+      <figure class="image-block" style="margin: 10px">
+        <h1>Chair</h1>
+        <img [src]="'data:image/jpeg;base64,' + product.imageBase64" class="card-img-top" alt="Product Image">
+        <figcaption>
+          <h3>{{product.titre}}</h3>
+          <p>{{product.prix}} DT</p>
+          <button (click)="addToCart(product) ">More Info</button>
+          <button class="btn btn-success" (click)="addToCart(product)">Add to Cart</button> <!-- Add this button -->
+        </figcaption>
+      </figure>
+    </div>
+    <!-- to delete -->
+
+    <div class="brand_container layout_padding2" >
+
+      <figure class="image-block" style="margin: 10px">
+        <h1>Chair</h1>
+        <img src="https://5.imimg.com/data5/YZ/ZM/XV/SELLER-50983634/single-seater-sofa-chair.jpg" alt="" />
+        <figcaption>
+          <h3>
+            title          </h3>
+          <p>120 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+        
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1>sofa</h1>
+        <img src="../../assets/fournitures/images/sofa.png" alt="" />
+        <figcaption>
+          <h3>
+            sofa          </h3>
+          <p>180 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1>Chair</h1>
+        <img src="../../assets/fournitures/images/product-1.png" alt="" />
+        <figcaption>
+          <h3>
+            Chair          </h3>
+          <p>90 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1>Chair</h1>
+        <img src="../../assets/fournitures/images/product-2.png" alt="" />
+        <figcaption>
+          <h3>
+            Chair          </h3>
+          <p>120 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1>Chair</h1>
+        <img src="../../assets/fournitures/images/product-3.png" alt="" />
+        <figcaption>
+          <h3>
+            Chair          </h3>
+          <p>120 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1>Vest</h1>
+        <img src="../../assets/shop/images/items/2.jpg" alt="" />
+        <figcaption>
+          <h3>
+            Vest          </h3>
+          <p>180 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1> Back Bag</h1>
+        <img src="../../assets/shop/images/items/4.jpg" alt="" />
+        <figcaption>
+          <h3>
+            Back Bag          </h3>
+          <p>80 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+      <figure class="image-block" style="margin: 10px">
+        <h1>Smart watch </h1>
+        <img src="../../assets/shop/images/items/7.jpg" alt="" />
+        <figcaption>
+          <h3>
+            Smart watch          </h3>
+          <p>280 DT</p>
+          <button>
+            More Info          </button>
+        </figcaption>
+      </figure>
+    </div>
+    <!-- end to delete " kif tkamel traka7 l crud faskh l partie hethy "-->
+</section>
+
+<!-- end brand section -->
+
+    <!-- Start Column 4 -->
+   <!-- End Footer Section -->
+
+
+<script src="assets/fournitures/js/bootstrap.bundle.min.js"></script>
+<script src="assets/fournitures/js/tiny-slider.js"></script>
+<script src="assets/fournitures/js/custom.js"></script>
+

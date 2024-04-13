@@ -1,0 +1,33 @@
+.cart-item {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cart-item-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 15px;
+}
+
+.btn-danger {
+    margin-top: 10px;
+}
+.product-image {
+    max-width: 100%; /* Limit image width to container width */
+    max-height: 200px; /* Limit image height to 200 pixels */
+    object-fit: contain; /* Maintain aspect ratio and fit within the specified dimensions */
+  }
+  

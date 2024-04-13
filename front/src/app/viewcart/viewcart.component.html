@@ -1,0 +1,35 @@
+<header>
+    <app-navbar-fourniture></app-navbar-fourniture>
+</header>
+
+<div class="container">
+    <h1>Your Cart</h1>
+    <div *ngFor="let product of cartProducts">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <!-- Display the image if product.imageBase64 is defined -->
+                    <img *ngIf="product.imageBase64" [src]="'data:image/jpeg;base64,' + product.imageBase64" alt="Product Image" class="product-image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.titre }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> {{ product.prix }}</p>
+                        <!-- Buttons for quantity adjustment with input validation -->
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-secondary me-2" (click)="updateQuantity(product, product.quantite - 1)" [disabled]="product.quantite <= 1">-</button>
+                            <button class="btn btn-secondary ms-2" (click)="updateQuantity(product, product.quantite + 1)">+</button>
+                            <!-- Add logging for debugging -->
+                            <span>Current quantity: {{ product.quantite }}</span>
+                        </div>
+                        <button class="btn btn-danger mt-2" (click)="removeFromCart(product.id)">Remove from Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary mt-3" (click)="passerCommande()">Passer Commande</button>
+    </div>
+   </div>

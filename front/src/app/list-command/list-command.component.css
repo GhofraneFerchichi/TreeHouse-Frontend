@@ -1,0 +1,57 @@
+.command-list {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.command-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.command-card {
+  width: 45%; /* Two items in the same line with some spacing */
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.command-card:hover {
+  transform: translateY(-5px);
+}
+
+.header {
+  background-color: #228b22; /* Green */
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.content {
+  padding: 10px;
+}
+
+.total-price {
+  font-weight: bold;
+}
+
+.products {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product {
+  margin-bottom: 5px;
+}
+
+.unpaid .header {
+  background-color: #dc3545; /* Red */
+}

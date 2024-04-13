@@ -1,0 +1,18 @@
+<header>
+  <app-navbar-fourniture></app-navbar-fourniture>
+</header>
+
+<div class="command-list">
+  <div class="command-row">
+    <mat-card *ngFor="let commande of commandes" class="command-card" [ngClass]="{'unpaid': !commande.commandePayee}">
+      <mat-card-header class="header">
+        <mat-card-title>Date de commande: {{ commande.dateCommande | date }}</mat-card-title>
+        <mat-card-subtitle>Commande payée: {{ commande.commandePayee ? 'Oui' : 'Non' }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <p class="total-price">Prix total: {{ commande.prixTotale }} DT</p>
+       
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

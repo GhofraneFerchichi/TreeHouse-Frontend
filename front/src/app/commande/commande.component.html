@@ -1,0 +1,49 @@
+<header>
+    <app-navbar-fourniture></app-navbar-fourniture>
+  </header>
+<div class="container">
+    <form #commandeForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Other form fields -->
+    
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstname" required>
+            <!-- Add the name attribute -->
+            <div class="invalid-feedback" *ngIf="commandeForm.controls['firstName']?.invalid && commandeForm.controls['firstName']?.touched">
+                First Name is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastname" required>
+            <div class="invalid-feedback" *ngIf="commandeForm.controls['lastName']?.invalid && commandeForm.controls['lastName']?.touched">
+                Last Name is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required>
+            <div class="invalid-feedback" *ngIf="commandeForm.controls['email']?.invalid && commandeForm.controls['email']?.touched">
+                Valid Email is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" name="address" [(ngModel)]="user.adresse" required>
+            <div class="invalid-feedback" *ngIf="commandeForm.controls['address']?.invalid && commandeForm.controls['address']?.touched">
+                Address is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="paymentType" class="form-label">Payment Type</label>
+            <select class="form-select" id="paymentType" name="paymentType" [(ngModel)]="paymentType" required>
+                <option value="cash">On Place - Cash</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Total Price</label>
+            <input type="text" class="form-control" [value]="totalPrice" readonly>
+        </div>
+        <button type="submit" class="btn btn-primary">Validate</button>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1" style="color: #54af3f;">Welcome</h2>
+      <h4 class="animation a2">Log in to your account using email and password</h4>
+    </div>
+    <!-- Add the "Sign in" hyperlink above the login form -->
+    <p class="animation a5"><a routerLink="/signup" style="color: #1e436c;">Create a new account?</a></p>
+    <form method="POST" class="register-form" id="login-form" #h="ngForm" (ngSubmit)="h.form.valid && login()">
+      <div class="div alert alert-danger" *ngIf="errorMessageLogin">
+        {{errorMessageLogin}}
+      </div>
+      <input type="email" id="email" class="form-field animation a3" [(ngModel)]="userLogin.email" name="email" placeholder="Email Address" required>
+      <input type="password" id="password" class="form-field animation a4" [(ngModel)]="userLogin.password" name="password" placeholder="Password" required>
+      <p class="animation a6"><a routerLink="/forget" style="background-color: #54af3f; color: #ffffff; padding: 5px 10px; display: inline-block; text-decoration: none; border: none; border-radius: 3px;">Forget Password</a></p>
+      <div class="form-group form-button">
+        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" style="background-color: #1e436c; color: #ffffff; padding: 5px 10px; display: inline-block; text-decoration: none; border: none; border-radius: 3px;" />
+      </div>
+    </form>
+  </div>
+  <div class="right"></div>
+</div>

@@ -1,0 +1,78 @@
+.container .text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .container form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container form .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .input-data {
+    width: calc(50% - 10px);
+    position: relative;
+  }
+  
+  .input-data label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: #777;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-data input[type="text"],
+  .input-data input[type="number"],
+  .input-data textarea,
+  .input-data input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .input-data input[type="file"] {
+    padding: 8px;
+  }
+  
+  .input-data input:focus,
+  .input-data textarea:focus {
+    border-color: #54af3f;
+  }
+  
+  .input-data textarea {
+    height: 150px;
+  }
+  
+  .submit-btn {
+    text-align: center;
+  }
+  
+  .submit-btn .input-data input[type="submit"] {
+    background-color: #54af3f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn .input-data input[type="submit"]:hover {
+    background-color: #45bb51;
+  }
+  

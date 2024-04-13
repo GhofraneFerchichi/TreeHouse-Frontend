@@ -1,0 +1,41 @@
+<header>
+  <app-navbar-fourniture></app-navbar-fourniture>
+</header>
+<div class="container">
+  <div class="text">Add Your Apartment</div>
+  <form [formGroup]="productForm" (ngSubmit)="addProduct()" enctype="multipart/form-data">
+
+    <div class="form-row">
+      <div class="input-data">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Enter Title" formControlName="title" id="title">
+      </div>
+      <div class="input-data">
+        <label for="quantite">Quantite</label>
+        <input type="number" class="form-control" placeholder="Enter Quantite" formControlName="quantite" id="quantite">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" placeholder="Enter Price" formControlName="price" id="price">
+      </div>
+    </div>
+    <div class="input-data">
+      <label for="image">Image</label>
+      <input type="file" class="form-control" (change)="onFileSelected($event)" id="image" name="image">
+      <div *ngIf="selectedFileName">{{ selectedFileName }}</div>
+    </div>
+    <div class="form-row">
+      <div class="input-data textarea">
+        <label for="description">Description</label>
+        <textarea class="form-control textarea" formControlName="description" id="description" rows="8" placeholder="Enter Description"></textarea>
+      </div>
+    </div>
+    <div class="form-row submit-btn">
+      <div class="input-data">
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1" style="color: #54af3f;">Welcome</h2>
+      <h4 class="animation a1">Sign Up</h4>
+    </div>
+    <!-- Add the hyperlink to route to /auth -->
+    <p class="animation a5"><a href="/auth" style="color: #1e436c;">Already have an account? Log in</a></p>
+
+    <form method="POST" class="register-form" id="register-form" #f="ngForm" (ngSubmit)="f.form.valid && register()">
+      <div class="div alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+      <input type="text" class="form-field animation a3" id="firstName" name="firstName" [(ngModel)]="user.firstname" #firstName="ngModel" placeholder="First Name" required >
+      <input type="text" class="form-field animation a4" id="lastName" name="lastName" [(ngModel)]="user.lastname" #lastName="ngModel" placeholder="Last Name" required>
+      
+      <input type="text" class="form-field animation a3" id="adresse" name="adresse" [(ngModel)]="user.adresse" #address="ngModel" placeholder="Address"/>
+      <input type="text" class="form-field animation a3" id="phone" name="phone" [(ngModel)]="user.phone" #phone="ngModel" placeholder="Phone"/>
+      <input type="email" class="form-field animation a3" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Email Address" required/>
+      <input type="password" id="password" class="form-field animation a3" name="password" [(ngModel)]="user.password" #password="ngModel" placeholder="Password"/>
+      <div class="form-group">
+        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+      </div>
+      <div class="form-group form-button">
+        <input type="submit" name="signup" id="signup" style="background-color: #45bb51; color: #ffffff;" class=" form-submit" value="Register"/>
+      </div>
+      <div class="div alert alert-success" *ngIf="mailcheck">
+        {{mailcheck}}
+      </div>
+    </form>
+  </div>
+  <div class="right"></div>
+</div>
