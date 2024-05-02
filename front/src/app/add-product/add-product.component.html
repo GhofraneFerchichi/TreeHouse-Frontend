@@ -1,8 +1,10 @@
-<header>
-  <app-navbar-fourniture></app-navbar-fourniture>
-</header>
+  <header>
+    <app-navbar-fourniture ></app-navbar-fourniture>
+  </header>
+  
+
 <div class="container">
-  <div class="text">Add Your Apartment</div>
+  <div class="heading">Add Your Apartment</div>
   <form [formGroup]="productForm" (ngSubmit)="addProduct()" enctype="multipart/form-data">
 
     <div class="form-row">
@@ -34,7 +36,7 @@
     </div>
     <div class="form-row submit-btn">
       <div class="input-data">
-        <input type="submit" value="Submit">
+        <button type="submit" class="btn btn-submit">Submit</button>
       </div>
     </div>
   </form>

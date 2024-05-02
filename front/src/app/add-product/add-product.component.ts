@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProductService} from 'src/app/services/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product} from 'src/app/models/product';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -80,7 +81,13 @@ export class AddProductComponent implements OnInit {
   
     this.productService.addProduct(formData).subscribe(
       (data) => {
-        this.router.navigate(['/home']);
+        // Configure navigation extras to force reload of the home page
+        const navigationExtras: NavigationExtras = {
+          skipLocationChange: true,
+        };
+  
+        // Navigate to the home page with navigation extras
+        this.router.navigate(['/home'], navigationExtras);
       },
       (error) => {
         // Handle error

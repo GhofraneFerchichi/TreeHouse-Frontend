@@ -35,6 +35,7 @@ constructor(
   private authService: AuthenticationService,
   private formBuilder: FormBuilder,
   private router: Router,
+  private toastr: ToastrService
 ) { }
 
   ngOnInit(): void {
@@ -74,29 +75,52 @@ constructor(
       }
     );
   }
-
   onSubmit() {
     if (this.commandeForm.invalid) {
       return;
     }
-
+  
     const formData = {
       ...this.commandeForm.value,
       adresse: this.commandeForm.value.address
     };
-
+  
     const userId = this.authService.currentUserValue.id;
-
+    const confirmSubmission = window.confirm('Are you sure you want to create this command?');
+    if (confirmSubmission) {
+  
     this.productService.validerCommande(formData, userId).subscribe(
       (response: any) => {
         console.log('Commande created successfully:', response);
-        localStorage.setItem('showToast', 'true');
+        // Navigate to home page
         this.router.navigate(['/home']);
+        this.showConfirmationMessage();
       },
       (error: any) => {
         console.error('Error creating command:', error);
         // Handle error
       }
     );
+  }}
+  
+  showConfirmationMessage() {
+    const confirmationDiv = document.createElement('div');
+    confirmationDiv.textContent = 'Command created successfully!';
+    confirmationDiv.style.backgroundColor = 'lightgreen';
+    confirmationDiv.style.color = 'black';
+    confirmationDiv.style.padding = '10px';
+    confirmationDiv.style.position = 'fixed';
+    confirmationDiv.style.top = '27%';
+    confirmationDiv.style.left = '50%';
+    confirmationDiv.style.transform = 'translate(-50%, -50%)';
+    confirmationDiv.style.zIndex = '9999';
+    confirmationDiv.style.borderRadius = '5px';
+    confirmationDiv.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.5)';
+    
+    document.body.appendChild(confirmationDiv);
+  
+    setTimeout(() => {
+      confirmationDiv.remove();
+    }, 3000); // Remove the confirmation message after 3 seconds
   }
-}
+}  
