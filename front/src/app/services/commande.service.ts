@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CommandeService {
 
-  private apiUrl = 'http://localhost:9009/api/v1/mcommandes'; // Update with your backend URL
+  private apiUrl = 'http://51.8.66.92:9009/api/v1/mcommandes'; // Update with your backend URL
 
   constructor(private http: HttpClient) { }
 

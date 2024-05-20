@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import FormsModule here
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -29,6 +29,7 @@ import { CommandeComponent } from './commande/commande.component';
 import { ListCommandComponent } from './list-command/list-command.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { TimeoutInterceptor } from './TimeoutInterceptor';
 
 
 @NgModule({
@@ -70,7 +71,14 @@ import { MatIconModule } from '@angular/material/icon';
     NgxPaginationModule,
     RouterModule.forRoot([]),
   ],
-  providers: [ProductService],
+  providers: [ProductService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TimeoutInterceptor, // Use the interceptor
+      multi: true
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
