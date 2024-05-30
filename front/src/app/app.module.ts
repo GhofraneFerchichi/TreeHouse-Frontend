@@ -29,7 +29,6 @@ import { CommandeComponent } from './commande/commande.component';
 import { ListCommandComponent } from './list-command/list-command.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { TimeoutInterceptor } from './TimeoutInterceptor';
 
 
 @NgModule({
@@ -71,12 +70,7 @@ import { TimeoutInterceptor } from './TimeoutInterceptor';
     NgxPaginationModule,
     RouterModule.forRoot([]),
   ],
-  providers: [ProductService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TimeoutInterceptor, // Use the interceptor
-      multi: true
-    }
+  providers: [ProductService
   ],
 
   bootstrap: [AppComponent]

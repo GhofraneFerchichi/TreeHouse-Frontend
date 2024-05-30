@@ -11,15 +11,15 @@ export class ResetServiceService {
   constructor(private httpClient: HttpClient) { }
 
   forgetPassword(email:string):Observable<any>{
-    return this.httpClient.post<any>('http://51.8.67.131:9010/api/reset/forgot_password?email='+email, {})
+    return this.httpClient.post<any>('http://172.173.184.146:9010/api/reset/forgot_password?email='+email, {})
   }
 
   getResetPassword(token:string):Observable<any>{
-    return this.httpClient.get<any>('http://51.8.67.131:9010/api/reset/reset_password?token='+token)
+    return this.httpClient.get<any>('http://172.173.184.146:9010/api/reset/reset_password?token='+token)
   }
 
   postResetPassword(reset: String):Observable<any>{
-    return this.httpClient.post<any>('http://51.8.67.131:9010/api/reset/reset_password', reset)
+    return this.httpClient.post<any>('http://172.173.184.146:9010/api/reset/reset_password', reset)
   }
 
 }

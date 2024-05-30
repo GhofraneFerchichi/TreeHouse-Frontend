@@ -1,10 +1,9 @@
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProductService} from 'src/app/services/product.service';
+import { Router, NavigationExtras } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Product} from 'src/app/models/product';
-import { NavigationExtras } from '@angular/router';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-add-product',
@@ -20,7 +19,6 @@ import { NavigationExtras } from '@angular/router';
 export class AddProductComponent implements OnInit {
   productForm: FormGroup;
   selectedFileName: string | null = null;
-
 
   constructor(
     private productService: ProductService,
@@ -40,26 +38,25 @@ export class AddProductComponent implements OnInit {
       quantite: [0, [Validators.required, Validators.min(0)]],
       image: [null, [Validators.required]], // Assuming image is required
     });
-    this.productService.setDataForm(this.productForm); // Initialize dataForm
   }
 
-  
   onFileSelected(event: any) {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files[0]) {
       const file = fileInput.files[0];
       this.selectedFileName = file.name;
-      // You can also update the form control value if needed
+      // Update the form control value
       this.productForm.get('image')?.setValue(file);
     } else {
       this.selectedFileName = null;
-      // You may also want to clear the form control value here if needed
+      // Clear the form control value
       this.productForm.get('image')?.setValue(null);
     }
   }
+
   addProduct() {
     const formData = new FormData();
-  
+
     // Get the file from the form control
     const imageControl = this.productForm.get('image');
     if (imageControl && imageControl.value instanceof File) {
@@ -68,33 +65,40 @@ export class AddProductComponent implements OnInit {
       console.error('No file selected.');
       return;
     }
-  
+
+    // Get other form values
+    const title = this.productForm.get('title')?.value;
+    const description = this.productForm.get('description')?.value;
+    const price = this.productForm.get('price')?.value;
+    const quantite = this.productForm.get('quantite')?.value;
+
+    // Ensure all values are available and not null
+    if (!title || !description || price == null || quantite == null) {
+      console.error('Missing form values.');
+      return;
+    }
+
     // Adjust the property names to match the backend
     const productData = {
-      titre: this.productForm.get('title')!.value,
-      description: this.productForm.get('description')!.value,
-      prix: this.productForm.get('price')!.value,
-      quantite: this.productForm.get('quantite')!.value
+      titre: title.toString(),
+      description: description.toString(),
+      prix: price.toString(),
+      quantite: quantite.toString()
     };
-  
+
     formData.append('product', JSON.stringify(productData));
-  
+
     this.productService.addProduct(formData).subscribe(
       (data) => {
-        // Configure navigation extras to force reload of the home page
         const navigationExtras: NavigationExtras = {
           skipLocationChange: true,
         };
-  
-        // Navigate to the home page with navigation extras
         this.router.navigate(['/home'], navigationExtras);
       },
       (error) => {
-        // Handle error
         console.error('Error adding product:', error);
-        // You can also display an error message to the user using ToastrService or similar
+        // Optionally display an error message to the user using ToastrService or similar
       }
     );
   }
-  
 }
