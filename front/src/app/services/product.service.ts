@@ -155,16 +155,7 @@ export class ProductService {
       null
     );
   }
-  updateProductQuantity(panierId: number, productId: number, newQuantity: number): Observable<any> {
-    // Get the current user's ID
-    const userId = this.currentUserValue ? this.currentUserValue.id : null;
-  
-    // Make the HTTP PUT request to update the product quantity in the cart
-    return this.httpClient.put<any>(
-      `${this.panierUrl}/updateQuantity/${panierId}/${productId}?newQuantity=${newQuantity}&userId=${userId}`,
-      {}
-    );
-  }
+
 
  // Method to fetch panierId associated with the current user
  getPanierId(): Observable<any> {
@@ -200,5 +191,14 @@ getTotalPrice(): Observable<any> {
     return this.httpClient.post<any>(`${this.apiUrl}/validercommande/1?userId=${userId}`, formData);
   }
   
-
+  updateProductQuantity(panierId: number, productId: number, newQuantity: number): Observable<any> {
+    // Get the current user's ID
+    const userId = this.currentUserValue ? this.currentUserValue.id : null;
+  
+    // Make the HTTP PUT request to update the product quantity in the cart
+    return this.httpClient.put<any>(
+      `${this.panierUrl}/updateQuantity/${panierId}/${productId}?newQuantity=${newQuantity}&userId=${userId}`,
+      {}
+    );
+  }
 }
