@@ -18,6 +18,8 @@ import {AddProductComponent} from "./add-product/add-product.component";
 import { ViewcartComponent } from './viewcart/viewcart.component';
 import { CommandeComponent } from './commande/commande.component';
 import { ListCommandComponent } from './list-command/list-command.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -51,7 +53,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash:true}), BrowserModule,FormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -5,8 +5,8 @@
 // environment.ts
 export const environment = {
   production: false,
-  baseUrl: 'http://172.173.184.146:9010/api/authentication',
-  baseUpdateUrl: 'http://172.173.184.146:9010/user',
+  baseUrl: 'http://172.171.81.145:9010/api/authentication',
+  baseUpdateUrl: 'http://172.171.81.145:9010/user',
   // Add more environment variables as needed
 };
 

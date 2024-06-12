@@ -27,5 +27,5 @@ steps:
     inputs:
       command: push
       containerRegistry: '$(dockerRegistryServiceConnection)'
-      repository: 'ghofraneferchichi/imagetree'  # Update repository to the correct format
+      repository: 'ghofraneferchichi/lastimage'  # Update repository to the correct format
       tags: 'latest'

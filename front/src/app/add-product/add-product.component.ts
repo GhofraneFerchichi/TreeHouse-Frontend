@@ -56,7 +56,7 @@ export class AddProductComponent implements OnInit {
 
   addProduct() {
     const formData = new FormData();
-
+  
     // Get the file from the form control
     const imageControl = this.productForm.get('image');
     if (imageControl && imageControl.value instanceof File) {
@@ -65,19 +65,19 @@ export class AddProductComponent implements OnInit {
       console.error('No file selected.');
       return;
     }
-
-    // Get other form values
-    const title = this.productForm.get('title')?.value;
-    const description = this.productForm.get('description')?.value;
+  
+    // Get other form values and ensure they are not null or undefined
+    const title = this.productForm.get('title')?.value || '';
+    const description = this.productForm.get('description')?.value || '';
     const price = this.productForm.get('price')?.value;
     const quantite = this.productForm.get('quantite')?.value;
-
-    // Ensure all values are available and not null
-    if (!title || !description || price == null || quantite == null) {
+  
+    // Ensure all required values are available
+    if (title.trim() === '' || description.trim() === '' || price == null || quantite == null) {
       console.error('Missing form values.');
       return;
     }
-
+  
     // Adjust the property names to match the backend
     const productData = {
       titre: title.toString(),
@@ -85,9 +85,9 @@ export class AddProductComponent implements OnInit {
       prix: price.toString(),
       quantite: quantite.toString()
     };
-
+  
     formData.append('product', JSON.stringify(productData));
-
+  
     this.productService.addProduct(formData).subscribe(
       (data) => {
         const navigationExtras: NavigationExtras = {
@@ -101,4 +101,5 @@ export class AddProductComponent implements OnInit {
       }
     );
   }
+  
 }

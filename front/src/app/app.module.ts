@@ -29,6 +29,7 @@ import { CommandeComponent } from './commande/commande.component';
 import { ListCommandComponent } from './list-command/list-command.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { MatIconModule } from '@angular/material/icon';
     NgxPaginationModule,
     RouterModule.forRoot([]),
   ],
-  providers: [ProductService
+  providers: [ProductService,  {provide: LocationStrategy, useClass: HashLocationStrategy}
+
   ],
 
   bootstrap: [AppComponent]
