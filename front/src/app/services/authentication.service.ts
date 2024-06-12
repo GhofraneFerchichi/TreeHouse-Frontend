@@ -32,6 +32,10 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  register(user: User): Observable<any> {
+    return this.http.post(this.baseupdateurl + '/register', user);
+  }
+
   login(user: User): Observable<any> {
     return this.http.post<any>(this.baseUrl + '/sign-in', user).pipe(
       map((response) => {
@@ -44,10 +48,7 @@ export class AuthenticationService {
     );
   }
 
-  register(user: User): Observable<any> {
-    return this.http.post(this.baseupdateurl + '/register', user);
-  }
-
+ 
   logOut() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(new User());
