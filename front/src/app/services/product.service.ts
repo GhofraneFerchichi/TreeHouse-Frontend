@@ -146,6 +146,15 @@ export class ProductService {
     );
   }
   
+
+  
+  private addProductToCreatedPanier(panierId: number, productId: number): Observable<any> {
+    const userId = this.currentUserValue ? this.currentUserValue.id : null;
+    return this.httpClient.post<any>(
+      `${this.panierUrl}/add/${panierId}/${productId}?userId=${userId}`,
+      null
+    );
+  }
   updateProductQuantity(panierId: number, productId: number, newQuantity: number): Observable<any> {
     // Get the current user's ID
     const userId = this.currentUserValue ? this.currentUserValue.id : null;
@@ -156,15 +165,6 @@ export class ProductService {
       {}
     );
   }
-  
-  private addProductToCreatedPanier(panierId: number, productId: number): Observable<any> {
-    const userId = this.currentUserValue ? this.currentUserValue.id : null;
-    return this.httpClient.post<any>(
-      `${this.panierUrl}/add/${panierId}/${productId}?userId=${userId}`,
-      null
-    );
-  }
-  
 
  // Method to fetch panierId associated with the current user
  getPanierId(): Observable<any> {
