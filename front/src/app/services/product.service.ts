@@ -13,9 +13,9 @@ export class ProductService {
 
   // Get the current user's ID
 
-  baseUrl = 'http://172.171.82.118:9004/api/v1/mproduits';
-  panierUrl = 'http://51.8.240.131:9005/api/v1/mpanier';
-  private apiUrl = 'http://51.8.240.67:9009/api/v1/mcommandes'; // Update with your backend URL
+  baseUrl = 'http://138.91.194.151:9004/api/v1/mproduits';
+  panierUrl = 'http://104.210.32.234:9005/api/v1/mpanier';
+  private apiUrl = 'http://138.91.192.17:9009/api/v1/mcommandes'; // Update with your backend URL
 
   product: Product = new Product(0, '', '', '', 0, 0, new Panier());
   panier: Panier = new Panier();

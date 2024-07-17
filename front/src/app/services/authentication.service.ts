@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthenticationService {
 
-  private baseUrl = 'http://172.171.81.145:9010/api/authentication';
-  private baseupdateurl = 'http://172.171.81.145:9010/user';
+  private baseUrl = 'http://104.210.44.173:9010/api/authentication';
+  private baseupdateurl = 'http://104.210.44.173:9010/user';
 
   storageUserAsStr: any = localStorage.getItem('currentUser')
     ? JSON.parse(localStorage.getItem('currentUser') || '{}')

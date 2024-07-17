@@ -5,7 +5,7 @@
       <h4 class="animation a1">Sign Up</h4>
     </div>
     <!-- Add the hyperlink to route to /auth -->
-    <p class="animation a5"><a href="/auth" style="color: #1e436c;">Already have an account? Log in</a></p>
+    <p class="animation a5"><a routerLink="/auth" style="color: #1e436c;">Already have an account? Log in</a></p>
 
     <form method="POST" class="register-form" id="register-form" #f="ngForm" (ngSubmit)="f.form.valid && register()">
       <div class="div alert alert-danger" *ngIf="errorMessage">
